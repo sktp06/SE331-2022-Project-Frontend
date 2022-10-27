@@ -32,7 +32,7 @@
     </nav>
   </div>
   <nav>
-    <router-link :to="{ name: 'EventList' }">Home</router-link> |
+    <router-link :to="{ name: 'EventList' }">Home</router-link> 
 
     <span v-if="isAdmin">
       |

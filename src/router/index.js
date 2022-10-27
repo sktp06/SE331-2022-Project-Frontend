@@ -1,10 +1,8 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import EventListView from '@/views/EventListView.vue'
-import EventEditView from '@/views/event/EventEditView.vue'
-import EventRegisterView from '@/views/event/EventRegisterView.vue'
+
 import AboutView from '../views/AboutView.vue'
-import EventLayoutView from '@/views/event/EventLayoutView.vue'
-import EventDetailView from '@/views/event/EventDetailView.vue'
+
 import NotFoundView from '@/views/NotFoundView.vue'
 import NetWorkErrorView from '@/views/NetworkErrorView.vue'
 import AddEvent from '@/views/EventForm.vue'

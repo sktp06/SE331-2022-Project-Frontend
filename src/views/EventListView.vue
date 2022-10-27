@@ -1,38 +1,18 @@
 <template>
-  <h1>Events For Good</h1>
+  <h1>List of people who has been vaccinated for COVID-19</h1>
 
   <div class="events">
     <div class="search-box">
-      <BaseInput
-        v-model="keyword"
-        type="text"
-        label="Search..."
-        @input="updateKeyword"
-      />
+      <BaseInput v-model="keyword" type="text" label="Search..." @input="updateKeyword" />
     </div>
-
-    <EventCard
-      v-for="event in events"
-      :key="event.id"
-      :event="event"
-    ></EventCard>
+    <EventCard v-for="event in events" :key="event.id" :event="event" />
 
     <div class="pagination">
-      <router-link
-        id="page-prev"
-        :to="{ name: 'EventList', query: { page: page - 1 } }"
-        rel="prev"
-        v-if="page != 1"
-      >
+      <router-link id="page-prev" :to="{ name: 'EventList', query: { page: page - 1 } }" rel="prev" v-if="page != 1">
         Prev Page
       </router-link>
 
-      <router-link
-        id="page-next"
-        :to="{ name: 'EventList', query: { page: page + 1 } }"
-        rel="next"
-        v-if="hasNextPage"
-      >
+      <router-link id="page-next" :to="{ name: 'EventList', query: { page: page + 1 } }" rel="next" v-if="hasNextPage">
         Next Page
       </router-link>
     </div>
@@ -135,6 +115,7 @@ export default {
   flex-direction: column;
   align-items: center;
 }
+
 .pagination {
   display: flex;
   width: 290px;

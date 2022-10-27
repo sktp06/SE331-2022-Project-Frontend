@@ -1,16 +1,18 @@
 <template>
   <router-link
     class="event-link"
-    :to="{ name: 'EventLayoutView', params: { id: event.id } }"
+    :to="{ name: 'UserDetails', params: { id: event.id } }"
   >
     <div class="event-card">
-      <span>@{{ event.time }} on {{ event.date }}</span>
-      <h4>{{ event.title }}</h4>
-      <span>by</span>
-      <h5>{{ event.organizer.name }}</h5>
+      <img src="../assets/icon.png" alt="" srcset="" /> <br />
+      <span>{{ event.name }} {{ event.surname }}</span> <br />
+      <span v-for="event in event.vaccine" :key="event">
+        Dose{{ event.dose }}: {{ event.type }} <br
+      /></span>
     </div>
   </router-link>
 </template>
+
 <script>
 export default {
   name: 'EventCard',
@@ -22,22 +24,34 @@ export default {
   }
 }
 </script>
+
 <style scoped>
 .event-card {
   padding: 20px;
-  width: 250px;
+  width: 200px;
+  height: 150px;
   cursor: pointer;
-  border: 1px solid #39495c;
+  border: 5px solid #002a5e;
   margin-bottom: 18px;
+  margin: auto;
+  background-color: #7694b9;
+  font-size: large;
 }
 
 .event-card:hover {
   transform: scale(1.01);
   box-shadow: 0 3px 12px 0 rgba(0, 0, 0, 0.2);
+  background-color: #add8e6;
 }
 
 .event-link {
-  color: #2c3e50;
+  color: #034689;
   text-decoration: none;
+  margin: auto;
+}
+
+img {
+  width: 100px;
+  height: 100px;
 }
 </style>

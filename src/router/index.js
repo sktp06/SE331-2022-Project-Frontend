@@ -1,8 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import EventListView from '@/views/EventListView.vue'
-
-import AboutView from '../views/AboutView.vue'
-
 import NotFoundView from '@/views/NotFoundView.vue'
 import NetWorkErrorView from '@/views/NetworkErrorView.vue'
 import AddEvent from '@/views/EventForm.vue'
@@ -12,17 +9,19 @@ import EventService from '@/services/EventService'
 import OrganizerService from '@/services/OrganizerService.js'
 import Login from '@/views/LoginFormView.vue'
 import Register from '@/views/RegisterFormView.vue'
+import EventLayout from '@/views/event/EventLayoutView'
+
+import UserDetails from '@/views/event/UserDetails.vue'
+import VaccineInjection from '@/views/event/VaccineInjection.vue'
+import DoctorComment from '@/views/event/DoctorComment.vue'
+
+
 const routes = [
   {
     path: '/',
     name: 'EventList',
     component: EventListView,
     props: (route) => ({ page: parseInt(route.query.page) || 1 })
-  },
-  {
-    path: '/about',
-    name: 'about',
-    component: AboutView
   },
   {
     path: '/patient/:id',

@@ -1,14 +1,17 @@
 <template>
-  <p>{{ event.time }} on {{ event.date }} @ {{ event.location }}</p>
-  <p>{{ event.description }}</p>
-  <img v-for="url in event.imageUrls" :key="url" :src="url" />
+  <div id="details-card">
+    <p>Name: {{ event.name }} {{ event.surname }}</p>
+    <p>Age: {{ event.age }}</p>
+    <p>Home Town: {{ event.homeTown }}</p>
+  </div>
 </template>
 
 <script>
 export default {
-  props: ['id', 'event']
+  props: ['event']
 }
 </script>
+
 <style scoped>
 img {
   border: 1px solid #ddd; /* Gray border */

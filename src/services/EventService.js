@@ -2,17 +2,17 @@ import apiClient from '@/services/AxiosClient.js'
 
 export default {
   getEvents(perPage, page) {
-    return apiClient.get('/event?_limit=' + perPage + '&_page=' + page)
+    return apiClient.get('/people?_limit=' + perPage + '&_page=' + page)
   },
   getEvent(id) {
-    return apiClient.get('/event/' + id)
+    return apiClient.get('/people/' + id)
   },
   saveEvent(event) {
-    return apiClient.post('/event', event)
+    return apiClient.post('/people', event)
   },
   getEventByKeyword(keyword, perPage, page) {
     return apiClient.get(
-      'event?_limit=' + perPage + '&_page=' + page + '&title=' + keyword
+      'people?_limit=' + perPage + '&_page=' + page + '&title=' + keyword
     )
   },
   uploadFile(file) {

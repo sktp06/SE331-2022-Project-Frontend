@@ -26,20 +26,23 @@ export default {
 </script>
 
 <style scoped>
-.event-card {
-  padding: 20px;
+/* .event-card{
+  margin: auto;
+  padding: 10px;
   width: 200px;
   height: 150px;
-  cursor: pointer;
   border: 5px solid #002a5e;
-  margin-bottom: 18px;
-  margin: auto;
-  background-color: #7694b9;
-  font-size: large;
-}
+  border-radius: 25px;
+  background: #ffffff;
+} */
 
+.event-card{
+  padding: 10px;
+  width: 200px;
+  height: 150px;
+}
 .event-card:hover {
-  transform: scale(1.01);
+  transform: scale(1.03);
   box-shadow: 0 3px 12px 0 rgba(0, 0, 0, 0.2);
   background-color: #add8e6;
 }

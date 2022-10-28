@@ -132,7 +132,7 @@ export default {
 
 .pagination {
   display: flex;
-  padding: 10px;
+  padding: 25px;
   width: auto;
 }
 

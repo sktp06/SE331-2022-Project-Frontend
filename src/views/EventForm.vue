@@ -1,5 +1,6 @@
 <template>
-  <div>
+  <div class="temp">
+  <div class="covv">
     <h1>Create an event</h1>
     <form @submit.prevent="saveEvent">
       <BaseInput
@@ -35,7 +36,7 @@
     </form>
 
     <pre>{{ event }}</pre>
-  </div>
+  </div></div>
 </template>
 
 <script>
@@ -91,4 +92,14 @@ export default {
   }
 }
 </script>
-<style scoped></style>
+<style scoped>
+.temp{
+  margin: 3%;
+}
+.covv{
+  background-color: bisque;
+  padding: 10px;
+  border-radius: 10px;
+  margin: auto;
+}
+</style>

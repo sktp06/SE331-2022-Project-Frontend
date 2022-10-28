@@ -4,6 +4,11 @@
   </div>
   <div id="nav">
     <nav class="navbar navbar-expand">
+      <router-link id="link" :to="{ name: 'EventList' }">Home</router-link> 
+      <!-- <span v-if="isAdmin"> -->
+       | 
+      <router-link id="link" :to="{ name: 'AddEvent' }"> New Event</router-link>
+    <!-- </span> -->
       <ul v-if="!GStore.currentUser" class="navbar-nav ml-auto">
         <li class="nav-item">
           <router-link to="/register" class="nav-link">
@@ -32,12 +37,7 @@
     </nav>
   </div>
   <nav>
-    <router-link :to="{ name: 'EventList' }">Home</router-link> 
-
-    <span v-if="isAdmin">
-      |
-      <router-link :to="{ name: 'AddEvent' }"> New Event</router-link>
-    </span>
+    
   </nav>
   <router-view />
 </template>
@@ -74,6 +74,10 @@ export default {
   to {
     background: transparent;
   }
+}
+
+#link{
+  padding: 10px;
 }
 
 body{

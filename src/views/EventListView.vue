@@ -7,10 +7,9 @@
     </div>
   </div>
   <div class="event-cd">
-    <EventCard  v-for="event in events" :key="event.id" :event="event" />
+    <EventCard id="cd" v-for="event in events" :key="event.id" :event="event" />
   </div>
 
-  <div class="events">
     <div class="pagination">
       <router-link id="page-prev" :to="{ name: 'EventList', query: { page: page - 1 } }" rel="prev" v-if="page != 1">
         Prev Page
@@ -20,7 +19,6 @@
         Next Page
       </router-link>
     </div>
-  </div>
 </template>
 
 <script>
@@ -120,15 +118,21 @@ export default {
   align-items: center;
 }
 
+#cd{
+  padding: 30px;
+  align-items: center;
+  margin: auto;
+}
+
 .event-cd{
-  padding: 10px;
   display: flex;
   flex-direction: row;
 }
 
 .pagination {
   display: flex;
-  width: 290px;
+  padding: 10px;
+  width: auto;
 }
 
 .pagination a {

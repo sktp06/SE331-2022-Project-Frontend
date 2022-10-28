@@ -3,7 +3,7 @@
     class="event-link"
     :to="{ name: 'UserDetails', params: { id: event.id } }"
   >
-    <div class="event-card">
+    <div id="event-ed" class="event-card">
       <img id="card" src="../assets/icon.png" alt="" srcset="" /> <br />
       <span>{{ event.name }} {{ event.surname }}</span> <br />
       <span v-for="event in event.vaccine" :key="event">
@@ -44,6 +44,11 @@ export default {
   border-radius: 25px;
   background: #ffffff;
 }
+
+#card{
+  padding: 10px;
+}
+
 .event-card:hover {
   transform: scale(1.03);
   box-shadow: 0 3px 12px 0 rgba(0, 0, 0, 0.2);

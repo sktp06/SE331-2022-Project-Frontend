@@ -1,36 +1,47 @@
 <template>
   <div class="temp">
   <div class="covv">
-    <h1>Create an event</h1>
+    <h1>Create a new Patient</h1>
     <form @submit.prevent="saveEvent">
-      <BaseInput
+      <h3>The image of the Event</h3>
+      <UploadImages id="addimg" @changed="handleImages" />
+      <!-- <BaseInput
         v-model="event.category"
         type="text"
-        label="Category"
+        label="Patient name"
         class="field"
-      />
+      /> -->
 
-      <h3>Name & describe your event</h3>
+      <!-- <h3>Name & describe your event</h3> -->
 
-      <BaseInput v-model="event.title" type="text" label="Title" />
+      <BaseInput v-model="event.name" type="text" label="Name" />
 
-      <BaseInput v-model="event.description" type="text" label="Description" />
+      <BaseInput v-model="event.surname" type="text" label="Surname" />
 
-      <h3>Where is your event?</h3>
+      <BaseInput v-model="event.age" type="text" label="Age" />
 
-      <label>Location</label>
+      <BaseInput v-model="event.hometown" type="text" label="Hometown" />
 
-      <BaseInput v-model="event.location" type="text" label="Location" />
+      <!-- <h3>Where is your event?</h3>
 
-      <h3>Who is your organizer?</h3>
+      <label>Location</label> -->
+
+      <!-- <BaseInput v-model="event.location" type="text" label="Location" /> -->
+
+      <!-- <h3>Who is your organizer?</h3> -->
 
       <BaseSelect
         :options="GStore.organizers"
         v-model="event.organizer.id"
-        label="Select an Organizer"
+        label="Select a first does vaccine"
       />
-      <h3>The image of the Event</h3>
-      <UploadImages @changed="handleImages" />
+
+      <BaseSelect
+        :options="GStore.organizers"
+        v-model="event.organizer.id"
+        label="Select a second does vaccine"
+      />
+      
 
       <button type="submit">Submit</button>
     </form>
@@ -101,5 +112,9 @@ export default {
   padding: 10px;
   border-radius: 10px;
   margin: auto;
+}
+#addimg{
+  height: 350px;
+  width: 280px;
 }
 </style>

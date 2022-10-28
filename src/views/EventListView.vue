@@ -1,5 +1,5 @@
 <template>
-  <h1>List of people who has been vaccinated for COVID-19</h1>
+  <h1 class="head">List of people who has been vaccinated for COVID-19</h1>
 
   <div class="events">
     <div class="search-box">
@@ -113,6 +113,9 @@ export default {
 }
 </script>
 <style scoped>
+.head{
+  text-shadow: #2c3e50;
+}
 .events {
   display: flex;
   flex-direction: column;

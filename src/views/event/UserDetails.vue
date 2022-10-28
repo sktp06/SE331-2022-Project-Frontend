@@ -1,8 +1,11 @@
 <template>
   <div id="details-card">
+    <p>Image: </p>
     <p>Name: {{ event.name }} {{ event.surname }}</p>
     <p>Age: {{ event.age }}</p>
     <p>Home Town: {{ event.homeTown }}</p>
+    <p>Dose1: {{ event.first_dose }} </p>
+    <p>Dose2: {{ event.second_dose }}</p>
   </div>
 </template>
 
@@ -13,6 +16,15 @@ export default {
 </script>
 
 <style scoped>
+#details-card{
+  background-color: bisque ;
+  margin-left: 5%;
+  margin-right: 5%;
+  margin-top: 1%;
+  border: 3px solid #ddd;
+  border-radius: 10px;
+}
+
 img {
   border: 1px solid #ddd; /* Gray border */
   border-radius: 4px; /* Rounded border */

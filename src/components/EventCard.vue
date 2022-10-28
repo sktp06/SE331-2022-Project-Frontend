@@ -6,7 +6,8 @@
     <div class="event-card">
       <img id="card" src="../assets/icon.png" alt="" srcset="" /> <br />
       <span>{{ event.name }} {{ event.surname }}</span> <br />
-      <span>{{ event.first_dose_date}} {{ event.second_dose_date }}</span> <br />
+      <span>{{ event.first_dose}}</span> <br />
+      <span>{{ event.second_dose }}</span> <br />
       <!-- <span v-for="event in event.vaccine" :key="event">
         Dose{{ event.first_dose_date }}: {{ event.second_dose_date }} <br
       /></span> -->
@@ -27,15 +28,6 @@ export default {
 </script>
 
 <style scoped>
-/* .event-card{
-  margin: auto;
-  padding: 10px;
-  width: 200px;
-  height: 150px;
-  border: 5px solid #002a5e;
-  border-radius: 25px;
-  background: #ffffff;
-} */
 
 .event-card{
   margin: auto;
@@ -62,7 +54,7 @@ export default {
 img {
   width: 150px;
   height: 150px;
-  padding: 15px;
-  margin-top: 15px;
+  padding-top: 5px;
+  margin-top: 5px;
 }
 </style>

@@ -5,8 +5,12 @@
     <div class="search-box">
       <BaseInput v-model="keyword" type="text" label="Search..." @input="updateKeyword" />
     </div>
-    <EventCard class="event-cd" v-for="event in events" :key="event.id" :event="event" />
+  </div>
+  <div class="event-cd">
+    <EventCard  v-for="event in events" :key="event.id" :event="event" />
+  </div>
 
+  <div class="events">
     <div class="pagination">
       <router-link id="page-prev" :to="{ name: 'EventList', query: { page: page - 1 } }" rel="prev" v-if="page != 1">
         Prev Page
@@ -118,6 +122,8 @@ export default {
 
 .event-cd{
   padding: 10px;
+  display: flex;
+  flex-direction: row;
 }
 
 .pagination {

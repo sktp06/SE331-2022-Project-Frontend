@@ -37,17 +37,16 @@ export default {
 } */
 
 .event-card{
-  padding: 10px;
-  width: 200px;
-  height: 150px;
+  width: 300px;
+  height: 300px;
   border: 5px solid #002a5e;
   border-radius: 25px;
   background: #ffffff;
 }
 
-#card{
+/* #card{
   padding: 10px;
-}
+} */
 
 .event-card:hover {
   transform: scale(1.03);

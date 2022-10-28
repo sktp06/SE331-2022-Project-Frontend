@@ -76,6 +76,11 @@ export default {
   }
 }
 
+body{
+  background-image: url('../src/assets/cardio-heartbeat-medical-healthcare-background_1017-24090.webp');
+  background-size: cover ;
+}
+
 #flashMessage {
   animation-name: yellowfade;
   animation-duration: 3s;

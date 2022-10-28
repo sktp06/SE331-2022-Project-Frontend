@@ -6,7 +6,8 @@
       <BaseInput v-model="keyword" type="text" label="Search..." @input="updateKeyword" />
     </div>
   </div>
-  <div class="event-cd">
+
+  <div class="row">
     <EventCard id="cd" v-for="event in events" :key="event.id" :event="event" />
   </div>
 

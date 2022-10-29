@@ -1,11 +1,13 @@
 <template>
   <div id="details-card">
-    <p>Image: </p>
-    <p>Name: {{ event.name }} {{ event.surname }}</p>
+      <img v-for="url in event.imageUrls" :key="url" :src="url" />
+    <br/>
+    <p>{{ event.name }} {{ event.surname }}</p>
     <p>Age: {{ event.age }}</p>
     <p>Home Town: {{ event.homeTown }}</p>
     <p>Dose1: {{ event.first_dose }} </p>
     <p>Dose2: {{ event.second_dose }}</p>
+    <h3 v-if="event.description"> {{event.description}} </h3>
   </div>
 </template>
 

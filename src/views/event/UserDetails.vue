@@ -1,6 +1,6 @@
 <template>
   <div id="details-card">
-      <img v-for="url in event.imageUrls" :key="url" :src="url" />
+      <img :src="event.image" />
     <br/>
     <p>{{ event.name }} {{ event.surname }}</p>
     <p>Age: {{ event.age }}</p>

@@ -5,7 +5,7 @@
   >
     <div class="event-card">
       <!-- <img id="card" v-if=" " src="../assets/icon.png" alt="" srcset="" /> <br /> -->
-      <img id="add" v-for="url in event.imageUrls" :key="url" :src="url" /><br />
+      <img id="add" :src="event.image" /><br />
       <span>{{ event.name }} {{ event.surname }}</span> <br />
       <span>{{ event.first_dose}}</span> <br />
       <span>{{ event.second_dose }}</span> <br />

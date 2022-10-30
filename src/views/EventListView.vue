@@ -7,7 +7,7 @@
     </div>
   </div>
 
-  <div class="row">
+  <div class="row" >
     <EventCard id="cd" v-for="event in events" :key="event.id" :event="event" />
   </div>
 
@@ -26,6 +26,7 @@
 // @ is an alias to /src
 import EventCard from '@/components/EventCard.vue'
 import EventService from '@/services/EventService.js'
+import AuthService from '@/services/AuthService.js'
 
 export default {
   name: 'EventListView',
@@ -34,6 +35,20 @@ export default {
       type: Number,
       required: true
     }
+  },
+  computed: {
+    currentUser() {
+      return localStorage.getItem('user')
+    },
+    isAdmin() {
+      return AuthService.hasRoles('ROLE_ADMIN')
+    },
+    isDoctor(){
+      return AuthService.hasRoles('ROLE_DOCTOR')
+    }
+    // isAdmin() {
+    //   return AuthService.hasRoles('ROLE_ADMIN')
+    // }
   },
   components: {
     EventCard

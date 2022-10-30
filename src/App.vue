@@ -24,15 +24,15 @@
         <li class="nav-item">
           <router-link to="/profile" class="nav-link">
             <font-awesome-icon icon="user" />
-            {{ GStore.currentUser.name }}
+            {{ GStore.currentUser.username }}
           </router-link>
         </li>
         <li class="nav-item">
-          <!-- <a class="nav-link"  @click="logout" > -->
-            <router-link to="/login" class="nav-link">
+          <a class="nav-link"  @click="logout" to="/login" >
+            <!-- <router-link to="/login" class="nav-link"> -->
             <font-awesome-icon icon="sign-out-alt" /> Logout
-          </router-link>
-          <!-- </a> -->
+          <!-- </router-link> -->
+          </a>
         </li>
       </ul>
     </nav>

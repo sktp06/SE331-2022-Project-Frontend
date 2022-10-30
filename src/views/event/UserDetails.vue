@@ -7,7 +7,9 @@
     <p>Home Town: {{ event.homeTown }}</p>
     <p>Dose1: {{ event.first_dose }} </p>
     <p>Dose2: {{ event.second_dose }}</p>
-    <h3 v-if="event.description"> {{event.description}} </h3>
+    <p>Comment:
+       {{event.doctor_comment_patient}} </p>
+    
   </div>
 </template>
 

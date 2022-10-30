@@ -128,6 +128,19 @@ export default {
 }
 </script>
 <style scoped>
+#cd{
+  overflow: hidden;
+  position: relative;
+  display: inline-block;
+}
+#cd::before,
+#cd::after{
+  content: '';
+  position: absolute;
+  width: 100%;
+  left: 0;
+}
+
 .head{
   text-shadow: #2c3e50;
 }

@@ -28,7 +28,7 @@
           </router-link>
         </li>
         <li class="nav-item">
-          <!-- <a class="nav-link" @click="logout" > -->
+          <!-- <a class="nav-link"  @click="logout" > -->
             <router-link to="/login" class="nav-link">
             <font-awesome-icon icon="sign-out-alt" /> Logout
           </router-link>

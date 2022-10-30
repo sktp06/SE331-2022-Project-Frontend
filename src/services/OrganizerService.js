@@ -10,6 +10,6 @@ const apiClient = axios.create({
 })
 export default {
   getOrganizers() {
-    return apiClient.get('/patients')
+    return apiClient.get('/vaccines')
   }
 }

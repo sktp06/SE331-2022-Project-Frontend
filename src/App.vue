@@ -5,10 +5,9 @@
   <div id="nav">
     <nav class="navbar navbar-expand">
       <router-link id="link" :to="{ name: 'EventList' }">Home</router-link> 
-      <!-- <span v-if="isAdmin"> -->
-       | 
+      <span v-if="isAdmin">
       <router-link id="link" :to="{ name: 'AddEvent' }"> New Event</router-link>
-    <!-- </span> -->
+    </span>
       <ul v-if="!GStore.currentUser" class="navbar-nav ml-auto">
         <li class="nav-item">
           <router-link to="/register" class="nav-link">
@@ -29,9 +28,11 @@
           </router-link>
         </li>
         <li class="nav-item">
-          <a class="nav-link" @click="logout">
+          <!-- <a class="nav-link" @click="logout" > -->
+            <router-link to="/login" class="nav-link">
             <font-awesome-icon icon="sign-out-alt" /> Logout
-          </a>
+          </router-link>
+          <!-- </a> -->
         </li>
       </ul>
     </nav>

@@ -12,7 +12,18 @@
 </template>
 <script>
 export default {
-  inject: ['GStore']
+  inject: ['GStore'],
+  computed: {
+    currentUser() {
+      return localStorage.getItem('user')
+    },
+    isAdmin() {
+      return AuthService.hasRoles('ROLE_ADMIN')
+    },
+    isDoctor(){
+      return AuthService.hasRoles('ROLE_DOCTOR')
+    }
+  }
 }
 </script>
 <style scoped>

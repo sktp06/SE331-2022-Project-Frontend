@@ -15,8 +15,8 @@ import UserDetails from '@/views/event/UserDetails.vue'
 import VaccineInjection from '@/views/event/VaccineInjection.vue'
 import DoctorComment from '@/views/event/DoctorComment.vue'
 
-import UserLayout from '@/views/event/UserLayout.vue'
-
+// import UserLayout from '@/views/event/UserLayout.vue'
+// import UserService from '@/services/UserService'
 import WelcomePage from '@/views/WelcomePage.vue'
 
 
@@ -75,26 +75,26 @@ const routes = [
     },
     props: (route) => ({ page: parseInt(route.query.page) || 1 })
   },
-  {
-    path: '/userLayout',
-    name: 'UserLayout',
-    component: UserLayout,
-    beforeEnter: (to) => {
-      return UserService.getUser(to.params.id)
-        .then((response) => {
-          GStore.user = response.data
-        })
-        .catch((error) => {
-          if (error.response && error.response.status == 404) {
-            return {
-              name: '404Resource'
-            }
-          } else {
-            return { name: 'NetWorkError' }
-          }
-        })
-      }
-    },
+  // {
+  //   path: '/userLayout',
+  //   name: 'UserLayout',
+  //   component: UserLayout,
+  //   beforeEnter: (to) => {
+  //     return UserService.getUser(to.params.id)
+  //       .then((response) => {
+  //         GStore.user = response.data
+  //       })
+  //       .catch((error) => {
+  //         if (error.response && error.response.status == 404) {
+  //           return {
+  //             name: '404Resource'
+  //           }
+  //         } else {
+  //           return { name: 'NetWorkError' }
+  //         }
+  //       })
+  //     }
+  //   },
   {
     path: '/patient/:id',
     name: 'EventLayout',

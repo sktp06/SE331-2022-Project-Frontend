@@ -59,16 +59,16 @@ const routes = [
       name: 'VaccineInjection',
       props: true,
       component: VaccineInjection,
-      beforeEnter: () => {
-        return VaccineService.getVaccine()
-          .then((response) => {
-            GStore.vaccines = response.data
-          })
-          .catch(() => {
-            GStore.vaccines = null
-            console.log('cannot load vaccine')
-          })
-      }
+      // beforeEnter: () => {
+      //   return VaccineService.getVaccine()
+      //     .then((response) => {
+      //       GStore.vaccines = response.data
+      //     })
+      //     .catch(() => {
+      //       GStore.vaccines = null
+      //       console.log('cannot load vaccine')
+      //     })
+      // }
     },
     {
       path: 'doctorcomment',

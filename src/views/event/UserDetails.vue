@@ -1,13 +1,14 @@
 <template>
-<!-- {{ GStore.event }} -->
+{{ GStore.event.vaccineList }}
   <div id="details-card">
       <img :src="event.image" />
     <br/>
     <p>{{ event.name }} {{ event.surname }}</p>
     <p>Age: {{ event.age }}</p>
     <p>Home Town: {{ event.homeTown }}</p>
-    <p>Dose1: {{ event.first_dose }} </p>
-    <p>Dose2: {{ event.second_dose }}</p>
+    <p>Dose: {{ event.first_dose }} </p>
+    <p>Dose: {{ event.second_dose }}</p>
+    <span v-for="vaccineI in GStore.event.vaccineList" :key="vaccineI.id" :vaccineI="vaccineI">Dose: {{vaccineI.name}}<br/> </span>
     <span v-for="commentI in GStore.event.commentList" :key="commentI.id" :commentI="commentI">Comment: {{commentI.comment}}<br/> </span>
     
   </div>
@@ -15,9 +16,10 @@
 <script>
 // import GStore from '@/store'
 import CommentService from '@/services/CommentService'
+import VaccineService from '@/services/VaccineService'
 export default {
   inject: ['GStore'],
-  props: ['event','comment']
+  props: ['event','comment', 'vaccine']
 }
 </script>
 

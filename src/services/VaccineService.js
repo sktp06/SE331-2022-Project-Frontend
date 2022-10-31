@@ -1,19 +1,8 @@
-import axios from 'axios'
+import apiClient from '@/services/AxiosClient.js'
 
-const apiClient = axios.create({
-  baseURL: process.env.VUE_APP_BACKEND_URL,
-  withCredentials: false,
-  headers: {
-    Accept: 'application/json',
-    'Content-Type': 'application/json'
-  }
-})
+export default{
+    addVaccine(id,vaccine){
+        apiClient.post('/vaccine/patient/'+id,{name:vaccine})
+    }
 
-export default {
-  getVaccine() {
-    return apiClient.get('/vaccine')
-  },
-  saveVaccine(event) {
-    return apiClient.post('/vaccine', event)
-  }
 }

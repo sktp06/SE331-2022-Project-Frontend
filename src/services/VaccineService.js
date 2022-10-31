@@ -8,8 +8,12 @@ const apiClient = axios.create({
     'Content-Type': 'application/json'
   }
 })
+
 export default {
   getVaccine() {
-    return apiClient.get('/vaccines')
+    return apiClient.get('/vaccine')
+  },
+  saveVaccine(event) {
+    return apiClient.post('/vaccine', event)
   }
 }

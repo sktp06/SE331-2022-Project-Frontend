@@ -1,29 +1,54 @@
 <template>
-  <div id="vaccine-card" v-for="event in event.vaccine" :key="event">
+  <!-- <div id="vaccine-card" v-for="event in event.vaccine" :key="event">
     Dose{{ event.dose }}: {{ event.type }} when {{ event.date }}
-  </div>
+  </div> -->
+
+  <BaseSelect
+        :options="GStore.vaccines"
+        v-model="event.vaccine.id"
+        label="Select a Vaccine"
+      />
+      <button type="submit">Submit</button>
 </template>
 
 <script>
+import VaccineService from '@/services/VaccineService.js'
 export default {
-  props: ['event'],
-  inject: ['GStore'], // <---- Inject the Global Store
-  methods: {
-    register() {
-      // Assuming successful API call to register them
-      this.GStore.flashMessage =
-        'You are successfully registered for ' + this.event.title
-      setTimeout(() => {
-        // After 3 seconds remove it
-        this.GStore.flashMessage = ''
-      }, 3000)
-      // Set a flash message to appear on the next page loaded which says
-      // 'You are successfully registered for ' + this.event.title
+  inject: ['GStore'],
+  data() {
+    return {
+      event: {
 
-      this.$router.push({
-        name: 'UserDetails',
-        params: { id: this.event.id }
+        vaccine: { id: '', name: '' },
+      
+      },
+     
+    }
+  },
+  methods: {
+    saveEvent() {
+      then((response) => {
+        this.event.imageUrls = response.map((r) => r.data)
+        VaccineService.saveEvent(this.event)
+          .then((response) => {
+            console.log(response)
+            this.$router.push({
+              name: 'EventDetails',
+              params: { id: response.data.id }
+            })
+            this.GStore.flashMessage =
+              'You are successfully add a new event for ' + response.data.title
+            setTimeout(() => {
+              this.GStore.flashMessage = ''
+            }, 3000)
+          })
+          .catch(() => {
+            this.$router.push('NetworkError')
+          })
       })
+    },
+    handleImages(files) {
+      this.files = files
     }
   }
 }

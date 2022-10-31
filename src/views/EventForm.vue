@@ -30,17 +30,17 @@
 
       <!-- <h3>Who is your organizer?</h3> -->
 
-      <BaseSelect
-        :options="GStore.organizers"
-        v-model="event.organizer.id"
+      <!-- <BaseSelect
+        :options="GStore.vaccines"
+        v-model="event.vaccine.name"
         label="Select a first does vaccine"
       />
 
       <BaseSelect
-        :options="GStore.organizers"
-        v-model="event.organizer.id"
+        :options="GStore.vaccines"
+        v-model="event.vaccine.name"
         label="Select a second does vaccine"
-      />
+      /> -->
       
 
       <button type="submit">Submit</button>
@@ -61,12 +61,12 @@ export default {
   data() {
     return {
       event: {
-        category: '',
-        title: '',
-        description: '',
-        location: '',
-        organizer: { id: '', name: '' },
-        imageUrls: []
+        // category: '',
+        // title: '',
+        // description: '',
+        // location: '',
+        vaccine: { id: '', name: '' },
+        // imageUrls: []
       },
       files: []
     }

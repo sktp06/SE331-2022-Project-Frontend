@@ -8,7 +8,7 @@
     <p>Dose1: {{ event.first_dose }} </p>
     <p>Dose2: {{ event.second_dose }}</p>
     <p>Comment:
-       {{event.doctor_comment_patient}} </p>
+       {{event.comment}} </p>
     
   </div>
 </template>

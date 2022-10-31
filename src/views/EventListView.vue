@@ -11,13 +11,15 @@
     <EventCard id="cd" v-for="event in events" :key="event.id" :event="event" />
   </div>
 
-    <div class="pagination">
-      <router-link id="page-prev" :to="{ name: 'EventList', query: { page: page - 1 } }" rel="prev" v-if="page != 1">
-        Prev Page
+  <!-- <p>Hover <a href="#" id="style-2" data-replace="this link"><span>this link</span></a></p> -->
+    <!-- <div data-replace="this link"><span>this link</span></div> -->
+    <div class="pagination" >
+      <router-link data-replace="Go to Prev Page" id="page-prev" :to="{ name: 'EventList', query: { page: page - 1 } }" rel="prev" v-if="page != 1">
+        <a href="#" id="style-2"><span>Go to Prev Page</span></a> 
       </router-link>
-
-      <router-link id="page-next" :to="{ name: 'EventList', query: { page: page + 1 } }" rel="next" v-if="hasNextPage">
-        Next Page
+      <router-link  data-replace="Go to Next Page" id="page-next" :to="{ name: 'EventList', query: { page: page + 1 } }" rel="next" v-if="hasNextPage">
+        <!-- Go to <span>Next Page</span> -->
+        <a href="#" id="style-2"><span>Go to Next Page</span> </a> 
       </router-link>
     </div>
 </template>
@@ -128,17 +130,69 @@ export default {
 }
 </script>
 <style scoped>
-#cd{
+a {
   overflow: hidden;
   position: relative;
   display: inline-block;
 }
-#cd::before,
-#cd::after{
-  content: '';
+
+a::before,
+a::after {
+  content: "";
   position: absolute;
   width: 100%;
   left: 0;
+}
+a::before {
+  background-color: white;
+  height: 2px;
+  bottom: 0;
+  transform-origin: 100% 50%;
+  transform: scaleX(0);
+  transition: transform 0.3s cubic-bezier(0.76, 0, 0.24, 1);
+}
+a::after {
+  content: attr(data-replace);
+  height: 100%;
+  top: 0;
+  transform-origin: 100% 50%;
+  transform: translate3d(200%, 0, 0);
+  transition: transform 0.3s cubic-bezier(0.76, 0, 0.24, 1);
+  color: #ffffff;
+}
+
+a:hover::before {
+  transform-origin: 0% 50%;
+  transform: scaleX(1);
+}
+a:hover::after {
+  transform: translate3d(0, 0, 0);
+}
+
+a span {
+  display: inline-block;
+  transition: transform 0.3s cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+a:hover span {
+  transform: translate3d(-200%, 0, 0);
+}
+
+/* Presentational Styles */
+body {
+  display: grid;
+  font-family: "Poppins", sans-serif;
+  font-size: 27px;
+  line-height: 1.5;
+  height: 100vh;
+  place-items: center;
+}
+
+a {
+  text-decoration: none;
+  color: #18272f;
+  font-weight: 700;
+  vertical-align: top;
 }
 
 .head{

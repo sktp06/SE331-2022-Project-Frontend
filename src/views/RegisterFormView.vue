@@ -9,14 +9,19 @@
       <Form @submit="handleRegiter" :validation-schema="schema">
         <div v-if="!successful">
           <div class="form-group">
+            <label for="name">Name</label>
+            <Field name="name" type="text" class="form-control" />
+            <ErrorMessage name="name" class="error-feedback" />
+          </div>
+          <div class="form-group">
+            <label for="lastname">Lastname</label>
+            <Field name="lastname" type="text" class="form-control" />
+            <ErrorMessage name="lastname" class="error-feedback" />
+          </div>
+          <div class="form-group">
             <label for="username">Username</label>
             <Field name="username" type="text" class="form-control" />
             <ErrorMessage name="username" class="error-feedback" />
-          </div>
-          <div class="form-group">
-            <label for="email">Email</label>
-            <Field name="email" type="email" class="form-control" />
-            <ErrorMessage name="email" class="error-feedback" />
           </div>
           <div class="form-group">
             <label for="password">Password</label>
@@ -24,12 +29,17 @@
             <ErrorMessage name="password" class="error-feedback" />
           </div>
           <div class="form-group">
+            <label for="email">Email</label>
+            <Field name="email" type="email" class="form-control" />
+            <ErrorMessage name="email" class="error-feedback" />
+          </div>
+          <div class="form-group">
             <button class="btn btn-primary btn-block" :disabled="loading">
               <span
                 v-show="loading"
                 class="spinner-border spinner-border-sm"
               ></span>
-              Sign Up
+              Register
             </button>
           </div>
         </div>
@@ -100,6 +110,33 @@ export default {
       this.message = ''
       this.successful = false
       this.loading = true
+    }, saveEvent() {
+      Promise.all(
+        this.files.map((file) => {
+          return EventService.uploadFile(file)
+        })
+      ).then((response) => {
+        this.event.imageUrls = response.map((r) => r.data)
+        EventService.saveEvent(this.event)
+          .then((response) => {
+            console.log(response)
+            this.$router.push({
+              name: 'EventDetails',
+              params: { id: response.data.id }
+            })
+            this.GStore.flashMessage =
+              'You are successfully add a new event for ' + response.data.title
+            setTimeout(() => {
+              this.GStore.flashMessage = ''
+            }, 3000)
+          })
+          .catch(() => {
+            this.$router.push('NetworkError')
+          })
+      })
+    },
+    handleImages(files) {
+      this.files = files
     }
   }
 }
@@ -137,4 +174,19 @@ label {
 .error-feedback {
   color: red;
 }
+
+.temp{
+  margin: 3%;
+}
+.covv{
+  background-color: bisque;
+  padding: 10px;
+  border-radius: 10px;
+  margin: auto;
+}
+#addimg{
+  height: 350px;
+  width: 280px;
+}
+
 </style>

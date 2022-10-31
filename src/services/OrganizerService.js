@@ -9,7 +9,7 @@ const apiClient = axios.create({
   }
 })
 export default {
-  getOrganizers() {
+  getVaccine() {
     return apiClient.get('/vaccines')
   }
 }

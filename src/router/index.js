@@ -67,7 +67,7 @@ const routes = [
       component: DoctorComment
       ,
       beforeEnter: () => {
-        return OrganizerService.getOrganizers()
+        return OrganizerService.getVaccine()
           .then((response) => {
             GStore.organizers = response.data
           })

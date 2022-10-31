@@ -33,6 +33,9 @@
             <Field name="email" type="email" class="form-control" />
             <ErrorMessage name="email" class="error-feedback" />
           </div>
+          <div><h3>The image of the Event</h3>
+          <UploadImages @changed="handleImages" />
+          </div>
           <div class="form-group">
             <button class="btn btn-primary btn-block" :disabled="loading">
               <span
@@ -56,11 +59,13 @@
 </template>
 <script>
 import AuthService from '@/services/AuthService.js'
+import UploadImages from 'vue-upload-drop-images'
 import { Form, Field, ErrorMessage } from 'vee-validate'
 import * as yup from 'yup'
 export default {
   name: 'RegisterView',
   components: {
+    UploadImages,
     Form,
     Field,
     ErrorMessage

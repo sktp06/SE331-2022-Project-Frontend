@@ -10,11 +10,11 @@ import VaccineService from '@/services/VaccineService.js'
 import Login from '@/views/LoginFormView.vue'
 import Register from '@/views/RegisterFormView.vue'
 import EventLayout from '@/views/event/EventLayoutView'
-
+import UserListView from '@/views/UserListView.vue'
 import UserDetails from '@/views/event/UserDetails.vue'
 import VaccineInjection from '@/views/event/VaccineInjection.vue'
 import DoctorComment from '@/views/event/DoctorComment.vue'
-
+import UserLayout from '@/views/event/UserLayout.vue'
 
 const routes = [
   {
@@ -23,6 +23,26 @@ const routes = [
     component: EventListView,
     props: (route) => ({ page: parseInt(route.query.page) || 1 })
   },
+  {
+    path: '/userLayout',
+    name: 'UserLayout',
+    component: UserLayout,
+    beforeEnter: (to) => {
+      return UserService.getUser(to.params.id)
+        .then((response) => {
+          GStore.user = response.data
+        })
+        .catch((error) => {
+          if (error.response && error.response.status == 404) {
+            return {
+              name: '404Resource'
+            }
+          } else {
+            return { name: 'NetWorkError' }
+          }
+        })
+      }
+    },
   {
     path: '/patient/:id',
     name: 'EventLayout',
@@ -93,6 +113,12 @@ const routes = [
     path: '/add-event',
     name: 'AddEvent',
     component: AddEvent
+  },
+  {
+    path: '/user',
+    name: 'UserListView',
+    component: UserListView,
+    props: (route) => ({ page: parseInt(route.query.page) || 1 }),
   },
   {
     path: '/404/:resource',

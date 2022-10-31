@@ -35,7 +35,7 @@
           </div>
           <div><h3>The image of the Event</h3>
           <UploadImages @changed="handleImages" />
-          </div>
+          </div><br/>
           <div class="form-group">
             <button class="btn btn-primary btn-block" :disabled="loading">
               <span
@@ -122,6 +122,7 @@ export default {
       this.message = ''
       this.successful = false
       this.loading = true
+      this.$router.go()
     }, saveEvent() {
       Promise.all(
         this.files.map((file) => {
@@ -144,11 +145,13 @@ export default {
           })
           .catch(() => {
             this.$router.push('NetworkError')
+            this.$router.go()
           })
       })
     },
     handleImages(files) {
       this.files = files
+      this.$router.go()
     }
   }
 }

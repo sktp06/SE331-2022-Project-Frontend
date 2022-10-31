@@ -14,13 +14,65 @@ import UserListView from '@/views/UserListView.vue'
 import UserDetails from '@/views/event/UserDetails.vue'
 import VaccineInjection from '@/views/event/VaccineInjection.vue'
 import DoctorComment from '@/views/event/DoctorComment.vue'
+
 import UserLayout from '@/views/event/UserLayout.vue'
+
+import WelcomePage from '@/views/WelcomePage.vue'
+
 
 const routes = [
   {
     path: '/',
     name: 'EventList',
     component: EventListView,
+    // beforeEnter: () => {
+    //   if (GStore.currentUser == null) {
+    //     return '/login'
+    //   }
+    //   if (GStore.currentUser.authorities == 'ROLE_USER') {
+    //     console.log(GStore.currentUser)
+    //     return {
+    //       name: 'UserDetails',
+    //       params: { id: GStore.currentUser.id }
+    //     }
+    //   }
+      // if (GStore.currentUser.authorities == 'ROLE_DOCTOR'){
+      //   return{
+      //     name: 'OwnPeople',
+      //     params: { id: GStore.currentUser.id }
+      //   }
+      // }
+      // return {
+      //   name: 'EventList'
+      // }
+    // },
+    props: (route) => ({ page: parseInt(route.query.page) || 1 })
+  },
+  {
+    path: '/',
+    name: 'WelcomePage',
+    component: WelcomePage,
+    beforeEnter: () => {
+      if (GStore.currentUser == null) {
+        return '/login'
+      }
+      if (GStore.currentUser.authorities == 'ROLE_USER') {
+        console.log(GStore.currentUser)
+        return {
+          name: 'UserDetails',
+          params: { id: GStore.currentUser.id }
+        }
+      }
+      // if (GStore.currentUser.authorities == 'ROLE_DOCTOR'){
+      //   return{
+      //     name: 'OwnPeople',
+      //     params: { id: GStore.currentUser.id }
+      //   }
+      // }
+      return {
+        name: 'EventList'
+      }
+    },
     props: (route) => ({ page: parseInt(route.query.page) || 1 })
   },
   {

@@ -9,9 +9,9 @@
       <Form @submit="handleRegiter" :validation-schema="schema">
         <div v-if="!successful">
           <div class="form-group">
-            <label for="name">Name</label>
-            <Field name="name" type="text" class="form-control" />
-            <ErrorMessage name="name" class="error-feedback" />
+            <label for="firstname">FirstName</label>
+            <Field name="firstname" type="text" class="form-control" />
+            <ErrorMessage name="firstname" class="error-feedback" />
           </div>
           <div class="form-group">
             <label for="lastname">Lastname</label>
@@ -94,8 +94,15 @@ export default {
       successful: false,
       loading: false,
       message: '',
-      schema
+      schema,
+      patient: {
+        firstname:'',
+        lastname:'',
+        imageUrls: []
+    },
+    files:[]
     }
+    
   },
   mounted() {
     if (this.GStore.currentUser) {

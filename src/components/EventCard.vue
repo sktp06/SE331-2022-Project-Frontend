@@ -17,13 +17,29 @@
 </template>
 
 <script>
+import AuthService from '@/services/AuthService.js'
 export default {
+  inject: ['GStore'],
   name: 'EventCard',
   props: {
     event: {
       type: Object,
       required: true
     }
+  },
+  computed: {
+    currentUser() {
+      return localStorage.getItem('user')
+    },
+    isAdmin() {
+      return AuthService.hasRoles('ROLE_ADMIN')
+    },
+    isDoctor() {
+      return AuthService.hasRoles('ROLE_DOCTOR')
+    }
+    // isAdmin() {
+    //   return AuthService.hasRoles('ROLE_ADMIN')
+    // }
   }
 }
 </script>

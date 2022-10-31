@@ -1,4 +1,8 @@
 <template>
+   <router-link
+    class="event-link"
+    :to="{ name: 'UserLayout', params: { id: user.id } }"
+  >
     <!-- <router-link
       class="event-link"
       :to="{ name: 'UserLayout', params: { id: user.id } }"
@@ -6,17 +10,27 @@
       <div class="event-card">
         <!-- <img id="card" v-if=" " src="../assets/icon.png" alt="" srcset="" /> <br /> -->
         <!-- <img id="add" :src="event.image" /><br /> -->
-        <span>{{ user.username }}, {{ user.email}}</span> <br />
+        <!-- <span>{{ GStore.user.firstname }} {{ GStore.user.lastname}}</span> <br />
+        <span>{{ GStore.user.email }}</span> <br /> -->
+        <span>{{ user.username }}</span>
         <!-- <span>{{ event.first_dose}}</span> <br />
         <span>{{ event.second_dose }}</span> <br /> -->
         <!-- <span v-for="event in event.vaccine" :key="event">
           Dose{{ event.first_dose_date }}: {{ event.second_dose_date }} <br
         /></span> -->
+       
       </div>
+    </router-link>
+
+
+
+      
     <!-- </router-link> -->
   </template>
   
   <script>
+  import AuthService from '@/services/AuthService'
+  
   export default {
     name: 'EventUser',
     props: {
@@ -24,7 +38,7 @@
         type: Object,
         required: true
       }
-    }
+    },
   }
   </script>
   

@@ -37,7 +37,8 @@ export default {
       CommentService.addComment(GStore.event.id,this.comment)
       this.$emit('comment-submited', doctorComment)
       this.patient_id = ''
-      this.comment = ''
+      this.comment = '',
+      this.$router.route('/')
     }
   }
 }

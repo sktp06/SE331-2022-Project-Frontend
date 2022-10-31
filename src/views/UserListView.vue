@@ -6,7 +6,7 @@
         <BaseInput v-model="keyword" type="text" label="Search..." @input="updateKeyword" />
       </div>
     </div>
-  
+  {{GStore}}
     <div class="row" >
       <EventUser id="cd" v-for="user in users" :key="user.id" :user="user" />
     </div>

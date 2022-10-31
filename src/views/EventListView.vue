@@ -7,6 +7,11 @@
     </div>
   </div>
   <!-- {{GStore.currentUser}} -->
+  <div v-if="GStore.currentUser.authorities == 'ROLE_USER'" class="current">
+    <p id="info">Username: {{GStore.currentUser.username}}<br/>
+    Email: {{GStore.currentUser.email}}<br/></p>
+    <!-- {{GStore.currentUser.imageUrls}}</p><br/> -->
+  </div>
   <div v-if="GStore.currentUser.authorities[1] == 'ROLE_ADMIN' || GStore.currentUser.authorities[0]=='ROLE_DOCTOR'" >
   <div class="row" >
     <EventCard id="cd" v-for="event in events" :key="event.id" :event="event" />
@@ -135,6 +140,18 @@ export default {
 }
 </script>
 <style scoped>
+#info{
+  padding: 1%;
+}
+
+.current{
+  background-color: bisque ;
+  margin-left: 5%;
+  margin-right: 5%;
+  margin-top: 1%;
+  border: 3px solid #ddd;
+  border-radius: 10px;
+}
 a {
   overflow: hidden;
   position: relative;

@@ -35,7 +35,7 @@
           </div>
           <div><h3>The image of the Event</h3>
           <UploadImages @changed="handleImages" />
-          </div>
+          </div><br/>
           <div class="form-group">
             <button class="btn btn-primary btn-block" :disabled="loading">
               <span

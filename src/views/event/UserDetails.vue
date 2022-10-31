@@ -1,5 +1,5 @@
 <template>
-{{ GStore.event }}
+<!-- {{ GStore.event }} -->
   <div id="details-card">
       <img :src="event.image" />
     <br/>

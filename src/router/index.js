@@ -6,7 +6,7 @@ import AddEvent from '@/views/EventForm.vue'
 import NProgress from 'nprogress'
 import GStore from '@/store'
 import EventService from '@/services/EventService'
-import OrganizerService from '@/services/OrganizerService.js'
+import VaccineService from '@/services/VaccineService.js'
 import Login from '@/views/LoginFormView.vue'
 import Register from '@/views/RegisterFormView.vue'
 import EventLayout from '@/views/event/EventLayoutView'
@@ -58,24 +58,24 @@ const routes = [
       path: 'vaccineinjection',
       name: 'VaccineInjection',
       props: true,
-      component: VaccineInjection
+      component: VaccineInjection,
+      beforeEnter: () => {
+        return VaccineService.getVaccine()
+          .then((response) => {
+            GStore.vaccines = response.data
+          })
+          .catch(() => {
+            GStore.vaccines = null
+            console.log('cannot load vaccine')
+          })
+      }
     },
     {
       path: 'doctorcomment',
       name: 'DoctorComment',
       props: true,
       component: DoctorComment
-      ,
-      beforeEnter: () => {
-        return OrganizerService.getVaccine()
-          .then((response) => {
-            GStore.organizers = response.data
-          })
-          .catch(() => {
-            GStore.organizers = null
-            console.log('cannot load organizer')
-          })
-      }
+      
     }
     ]
   },

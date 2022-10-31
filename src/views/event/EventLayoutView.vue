@@ -6,6 +6,8 @@
       |
       <!-- <router-link :to="{ name: 'VaccineInjection' }">Vaccine injection</router-link> -->
       <router-link id="tex" :to="{ name: 'DoctorComment' }">Doctor's recommentation</router-link>
+      |
+      <router-link id="tex" :to="{name: 'VaccineInjection'}"> Add Vaccine</router-link>
     </div>
     <router-view :event="GStore.event" />
   </div>

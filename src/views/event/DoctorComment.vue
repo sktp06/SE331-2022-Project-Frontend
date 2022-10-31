@@ -3,7 +3,7 @@
   <div class="covv">
     <h1>Commentation</h1>
     <form @submit.prevent="addComment">
-      <pre>{{ GStore.comment }}</pre>
+      <!-- <pre>{{ GStore.comment }}</pre> -->
       <!-- <BaseInput
         v-model="event.category"
         type="text"

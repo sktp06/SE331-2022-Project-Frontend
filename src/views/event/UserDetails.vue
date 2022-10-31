@@ -1,4 +1,5 @@
 <template>
+{{ GStore.event }}
   <div id="details-card">
       <img :src="event.image" />
     <br/>
@@ -7,15 +8,16 @@
     <p>Home Town: {{ event.homeTown }}</p>
     <p>Dose1: {{ event.first_dose }} </p>
     <p>Dose2: {{ event.second_dose }}</p>
-    <p>Comment:
-       {{event.comment}} </p>
+    <span v-for="commentI in GStore.event.commentList" :key="commentI.id" :commentI="commentI">Comment: {{commentI.comment}}<br/> </span>
     
   </div>
 </template>
-
 <script>
+// import GStore from '@/store'
+import CommentService from '@/services/CommentService'
 export default {
-  props: ['event']
+  inject: ['GStore'],
+  props: ['event','comment']
 }
 </script>
 

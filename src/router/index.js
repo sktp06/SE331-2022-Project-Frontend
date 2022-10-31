@@ -6,7 +6,7 @@ import AddEvent from '@/views/EventForm.vue'
 import NProgress from 'nprogress'
 import GStore from '@/store'
 import EventService from '@/services/EventService'
-import OrganizerService from '@/services/OrganizerService.js'
+import OrganizerService from '@/services/VaccineService.js'
 import Login from '@/views/LoginFormView.vue'
 import Register from '@/views/RegisterFormView.vue'
 import EventLayout from '@/views/event/EventLayoutView'
@@ -33,7 +33,7 @@ const routes = [
         .then((response) => {
           // Still need to set the data here
           GStore.event = response.data // <--- Store the event
-          GStore.event.doctor_com = GStore.reviews.filter((event) => GStore.event.id == event.patient_id)
+          // GStore.event.doctor_com = GStore.reviews.filter((event) => GStore.event.id == event.patient_id)
           //   console.log(GStore.event.doctor_com)
           //   console.log(GStore.reviews.patient_id)
         })
@@ -65,17 +65,17 @@ const routes = [
       name: 'DoctorComment',
       props: true,
       component: DoctorComment
-      ,
-      beforeEnter: () => {
-        return OrganizerService.getVaccine()
-          .then((response) => {
-            GStore.organizers = response.data
-          })
-          .catch(() => {
-            GStore.organizers = null
-            console.log('cannot load organizer')
-          })
-      }
+      // ,
+      // beforeEnter: () => {
+      //   return OrganizerService.getVaccine()
+      //     .then((response) => {
+      //       GStore.organizers = response.data
+      //     })
+      //     .catch(() => {
+      //       GStore.organizers = null
+      //       console.log('cannot load organizer')
+      //     })
+      // }
     }
     ]
   },

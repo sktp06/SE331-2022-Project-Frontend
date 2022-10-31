@@ -4,9 +4,9 @@
   </div>
   <div id="nav">
     <nav class="navbar navbar-expand">
-      <router-link id="link" :to="{ name: 'EventList' }">Home</router-link> 
+      <router-link id="link" :to="{ name: 'EventList' }"><font-awesome-icon icon="house" />Home</router-link> 
       <span v-if="isAdmin">
-      <router-link id="link" :to="{ name: 'AddEvent' }"> New Event</router-link>
+      <router-link id="link" :to="{ name: 'AddEvent' }">New Event</router-link>
     </span>
       <ul v-if="!GStore.currentUser" class="navbar-nav ml-auto">
         <li class="nav-item">
@@ -84,6 +84,9 @@ export default {
   padding: 10px;
 }
 
+#link:hover{
+  color:#FFFACD;
+}
 body{
   background-image: url('../src/assets/cardio-heartbeat-medical-healthcare-background_1017-24090.webp');
   background-size: cover ;

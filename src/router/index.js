@@ -48,33 +48,33 @@ const routes = [
     // },
     props: (route) => ({ page: parseInt(route.query.page) || 1 })
   },
-  {
-    path: '/',
-    name: 'WelcomePage',
-    component: WelcomePage,
-    beforeEnter: () => {
-      if (GStore.currentUser == null) {
-        return '/login'
-      }
-      if (GStore.currentUser.authorities == 'ROLE_USER') {
-        console.log(GStore.currentUser)
-        return {
-          name: 'UserDetails',
-          params: { id: GStore.currentUser.id }
-        }
-      }
-      // if (GStore.currentUser.authorities == 'ROLE_DOCTOR'){
-      //   return{
-      //     name: 'OwnPeople',
-      //     params: { id: GStore.currentUser.id }
-      //   }
-      // }
-      return {
-        name: 'EventList'
-      }
-    },
-    props: (route) => ({ page: parseInt(route.query.page) || 1 })
-  },
+  // {
+  //   path: '/',
+  //   name: 'WelcomePage',
+  //   component: WelcomePage,
+  //   beforeEnter: () => {
+  //     if (GStore.currentUser == null) {
+  //       return '/login'
+  //     }
+  //     if (GStore.currentUser.authorities == 'ROLE_USER') {
+  //       console.log(GStore.currentUser)
+  //       return {
+  //         name: 'UserDetails',
+  //         params: { id: GStore.currentUser.id }
+  //       }
+  //     }
+  //     // if (GStore.currentUser.authorities == 'ROLE_DOCTOR'){
+  //     //   return{
+  //     //     name: 'OwnPeople',
+  //     //     params: { id: GStore.currentUser.id }
+  //     //   }
+  //     // }
+  //     return {
+  //       name: 'EventList'
+  //     }
+  //   },
+  //   props: (route) => ({ page: parseInt(route.query.page) || 1 })
+  // },
   // {
   //   path: '/userLayout',
   //   name: 'UserLayout',

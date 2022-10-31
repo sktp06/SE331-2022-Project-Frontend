@@ -38,6 +38,7 @@ export default {
       this.$emit('Vaccine-submited', addVaccine)
       this.patient_id = ''
       this.vaccine = ''
+      this.$router.go()
     }
   }
 }

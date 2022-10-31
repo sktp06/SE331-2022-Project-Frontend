@@ -122,6 +122,7 @@ export default {
       this.message = ''
       this.successful = false
       this.loading = true
+      this.$router.go()
     }, saveEvent() {
       Promise.all(
         this.files.map((file) => {
@@ -144,11 +145,13 @@ export default {
           })
           .catch(() => {
             this.$router.push('NetworkError')
+            this.$router.go()
           })
       })
     },
     handleImages(files) {
       this.files = files
+      this.$router.go()
     }
   }
 }

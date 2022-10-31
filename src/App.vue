@@ -7,7 +7,7 @@
       <router-link id="link" :to="{ name: 'EventList' }">
         <font-awesome-icon icon="house" />Home
       </router-link>
-      <router-link id="link" :to="{ name: 'UserListView' }"> User </router-link>
+      <router-link v-if="isAdmin" id="link" :to="{ name: 'UserListView' }"> User </router-link>
       <span v-if="isAdmin">
         <router-link id="link" :to="{ name: 'AddEvent' }">New Event</router-link> |
 

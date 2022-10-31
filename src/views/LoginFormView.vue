@@ -66,6 +66,7 @@ export default {
         })
         .catch(() => {
           this.message = 'could not login'
+          this.$router.go()
         })
     }
   }

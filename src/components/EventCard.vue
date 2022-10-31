@@ -47,7 +47,7 @@ export default {
 .event-card:hover {
   transform: scale(1.05);
   box-shadow: 0 3px 12px 0 rgba(0, 0, 0, 0.2);
-  background-color: #add8e6;
+  background-color: #93d7ee;
 }
 
 .event-link {

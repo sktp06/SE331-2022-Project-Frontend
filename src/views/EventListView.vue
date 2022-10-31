@@ -15,7 +15,7 @@
     <!-- <div data-replace="this link"><span>this link</span></div> -->
     <div class="pagination" >
       <router-link data-replace="Go to Prev Page" id="page-prev" :to="{ name: 'EventList', query: { page: page - 1 } }" rel="prev" v-if="page != 1">
-        <a href="#" id="style-2"><font-awesome-icon icon="arrow-to-left" /><span>Go to Prev Page</span></a><br/>
+        <a href="#" id="style-2"><span>Go to Prev Page</span></a><br/>
          
       </router-link>
       <router-link  data-replace="Go to Next Page" id="page-next" :to="{ name: 'EventList', query: { page: page + 1 } }" rel="next" v-if="hasNextPage">

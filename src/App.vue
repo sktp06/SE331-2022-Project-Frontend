@@ -84,6 +84,9 @@ export default {
   padding: 10px;
 }
 
+#link:hover{
+  color:#FFFACD;
+}
 body{
   background-image: url('../src/assets/cardio-heartbeat-medical-healthcare-background_1017-24090.webp');
   background-size: cover ;

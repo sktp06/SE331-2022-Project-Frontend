@@ -1,10 +1,16 @@
 <template>
   <h1 class="head">List of people who has been vaccinated for COVID-19</h1>
 
-  <div class="events">
+  <!-- <div class="events">
     <div class="search-box">
       <BaseInput v-model="keyword" type="text" label="Search..." @input="updateKeyword" />
     </div>
+  </div> -->
+
+  <div v-if="GStore.currentUser.authorities == 'ROLE_USER'" class="current" id="cd">
+    <p id="info">Username: {{GStore.currentUser.username}}<br/>
+    Email: {{GStore.currentUser.email}}<br/></p>
+    {{GStore.currentUser.image}}<br/>
   </div>
 
   <div v-if="GStore.currentUser.authorities[1] == 'ROLE_ADMIN' || GStore.currentUser.authorities[0]=='ROLE_DOCTOR'" >

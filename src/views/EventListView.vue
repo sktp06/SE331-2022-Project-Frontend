@@ -7,6 +7,7 @@
     </div>
   </div>
 
+  <div v-if="GStore.currentUser.authorities[1] == 'ROLE_ADMIN' || GStore.currentUser.authorities[0]=='ROLE_DOCTOR'" >
   <div class="row" >
     <EventCard id="cd" v-for="event in events" :key="event.id" :event="event" />
   </div>
@@ -23,6 +24,7 @@
         <a href="#" id="style-2"><span>Go to Next Page</span> </a> 
       </router-link>
     </div>
+  </div>
 </template>
 
 <script>
@@ -30,8 +32,10 @@
 import EventCard from '@/components/EventCard.vue'
 import EventService from '@/services/EventService.js'
 import AuthService from '@/services/AuthService.js'
+import GStore from '@/store'
 
 export default {
+  inject: ['GStore'],
   name: 'EventListView',
   props: {
     page: {

@@ -5,9 +5,9 @@
       <router-link id="tex" :to="{ name: 'UserDetails' }">User details</router-link>
       |
       <!-- <router-link :to="{ name: 'VaccineInjection' }">Vaccine injection</router-link> -->
-      <router-link id="tex" :to="{ name: 'DoctorComment' }">Doctor's recommentation</router-link>
+      <router-link v-if="GStore.currentUser.authorities[0]=='ROLE_DOCTOR'" id="tex" :to="{ name: 'DoctorComment' }">Doctor's recommentation</router-link>
       |
-      <router-link id="tex" :to="{name: 'VaccineInjection'}"> Add Vaccine</router-link>
+      <router-link v-if="GStore.currentUser.authorities[1] == 'ROLE_ADMIN'" id="tex" :to="{name: 'VaccineInjection'}"> Add Vaccine</router-link>
     </div>
     <router-view :event="GStore.event" />
   </div>

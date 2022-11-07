@@ -9,7 +9,7 @@
       |
       <router-link v-if="GStore.currentUser.authorities[1] == 'ROLE_ADMIN'" id="tex" :to="{name: 'VaccineInjection'}"> Add Vaccine</router-link>
     </div>
-    <router-view :event="GStore.event" />
+    <!-- <router-view :event="GStore.event" /> -->
   </div>
 </template>
 <script>
